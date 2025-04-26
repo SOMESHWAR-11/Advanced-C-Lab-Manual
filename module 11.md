@@ -197,10 +197,37 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+```
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char sentence[1000];
+    int i = 0, word_count = 0;
+    int in_word = 0;
+
+
+    fgets(sentence, sizeof(sentence), stdin); 
+
+    while (sentence[i] != '\0') {
+        if (isspace(sentence[i]) || ispunct(sentence[i])) {
+            in_word = 0; 
+        } else if (in_word == 0) {
+            in_word = 1; 
+            word_count++;
+        }
+        i++;
+    }
+
+    printf("Number of words: %d\n", word_count);
+    return 0;
+}
+```
 
 Output:
-//paste your output here
+
+
+![Screenshot 2025-04-26 212609](https://github.com/user-attachments/assets/c7f4e060-db6e-4dca-9a65-913f84496219)
 
 
 
